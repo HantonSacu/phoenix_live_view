@@ -25,7 +25,8 @@ export default class LiveUploader {
 
   static getEntryDataURL(inputEl, ref, callback){
     let file = this.activeFiles(inputEl).find(file => this.genFileRef(file) === ref)
-    callback(URL.createObjectURL(file))
+    URL.srcObject = file
+    callback(URL.srcObject)
   }
 
   static hasUploadsInProgress(formEl){
